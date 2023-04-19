@@ -1,6 +1,7 @@
 package com.example.authreg_midmorning
 
 import android.content.Context
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var email_edit: EditText
     lateinit var password_edit: EditText
     lateinit var create_btn: Button
+    lateinit var login_btn: Button
     lateinit var db: SQLiteDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         email_edit = findViewById(R.id.edit_email)
         password_edit = findViewById(R.id.edit_password)
         create_btn = findViewById(R.id.createacc_btn)
+        login_btn = findViewById(R.id.login_button)
+
+        login_btn.setOnClickListener {
+            var gotologin = Intent(this, LoginActivity::class.java)
+            startActivity(gotologin)
+        }
         db = openOrCreateDatabase("nderuhDB", Context.MODE_PRIVATE, null)
         db.execSQL("CREATE TABLE IF NOT EXISTS users(firstname VARCHAR, secondname VARCHAR, arafa VARCHAR, pass VARCHAR)")
         create_btn.setOnClickListener {
@@ -36,7 +44,9 @@ class MainActivity : AppCompatActivity() {
             } else {
                 //Insert Data
                 db.execSQL("INSERT INTO users VALUES( '\"+firstname_edit+\"', '\"+secondname_edit+\"', '\"+arafa_edit+\"',  '\"+pass_edit+\"')")
-                Toast.makeText(this, "Data Saved Successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "User Saved Successfully", Toast.LENGTH_SHORT).show()
+                var gotologin = Intent(this, LoginActivity::class.java)
+                startActivity(gotologin)
             }
 
         }

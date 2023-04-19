@@ -25,7 +25,7 @@
         android:id="@+id/edit_secondname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="22dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Second Name"
@@ -38,10 +38,10 @@
         android:id="@+id/createacc_btn"
         android:layout_width="250dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="264dp"
+        android:layout_marginBottom="16dp"
         android:text="Create Account"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_password" />
@@ -77,4 +77,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="198dp"
+        android:text="Login"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createacc_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
